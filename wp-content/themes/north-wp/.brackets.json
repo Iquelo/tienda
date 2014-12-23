@@ -1,0 +1,6 @@
+{
+    "jscodehints.detectedExclusions": [
+        "/localhost/wordpress/wp-content/themes/north-wp/inc/plugins/js_composer/assets/lib/bootstrap3/dist/js/bootstrap.min.js",
+        "/localhost/wordpress/wp-content/themes/north-wp/assets/js/plugins/app.js"
+    ]
+}

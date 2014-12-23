@@ -1,0 +1,141 @@
+/* Side Cart */
+#side-cart {
+	position: fixed;
+	top: 0;
+	height: 100%;
+	z-index: 99;
+	padding: 0;
+	right: -320px;
+	width: 320px;
+	background: #fff;
+	overflow: hidden;
+	.csstransforms3d & {
+		right: 0;
+		@include translate3d(320px, 0, 0);
+	}
+	.touch & {
+		overflow-x: hidden !important;
+		overflow-y: scroll !important;
+		-ms-overflow-style: -ms-autohiding-scrollbar !important;
+		-webkit-overflow-scrolling: touch !important;	
+	}
+	@extend .transition;
+	
+	@media only screen and (max-width: $break-small) {
+		width: 280px;
+		right: -280px;
+		
+		.csstransforms3d & {
+			right:0;
+			@include translate3d(280px, 0, 0);
+		}
+	}
+	.admin-bar & {
+		padding-top: 46px;
+		
+		@media screen and (min-width: 783px){
+		  padding-top: 32px;
+		}
+	}
+	
+	.open-cart &{
+		right: 0;
+		.csstransforms3d & {
+			@include translate3d(0, 0, 0);
+		}
+	}
+	header {
+		border-bottom: 2px solid $color2;
+		padding: 45px 30px 30px;
+		
+		h6 {
+			margin: 0;
+			font-size: 16px;
+			font-weight: 600;
+			color: $color1;	
+		}
+	}
+	.buttons {
+		width: 100%;
+		padding: 30px;
+		background: #fff;
+		border-top: 1px solid $color2;
+		
+		.btn + .btn {
+			margin-top: 5px;
+		}
+	}
+	.subtotal {
+		width: 100%;
+		padding: 22px 30px;
+		border-top: 1px solid $color2;
+		font-size: 16px;
+		color: #454545;
+		font-weight: 600;
+		
+		span {
+			float: right;
+			font-weight: 300;	
+		}
+	}
+	ul {
+		display: block;
+		width: 100%;
+		padding: 30px 30px 0;
+		overflow: hidden;
+		list-style: none;
+		margin: 0;
+		li {
+			position: relative;
+			border-bottom: 1px solid $color2;
+			padding-bottom: 19px;
+			margin-bottom: 20px;
+			&:last-child {
+				border-bottom: 0;	
+				margin-bottom: 0;
+			}
+			figure {
+				float: left;
+				width: 40px;
+				height: 40px;
+				margin-right: 22px;
+			}
+			.list_content {
+				padding-left: 62px;
+				
+				h5 {
+					font-size: 14px;
+					font-weight: bold;
+					text-transform: uppercase;
+					
+					a {
+						color: $color1;
+					}
+				}
+				.quantity {
+					border: 1px solid $color2;
+					width: 31px;
+					height: 29px;
+					margin-right: 5px;
+					text-align: center;
+					line-height: 29px;
+					font-size: 12px;
+					font-weight: 300;
+				}
+				.price {
+					display: inline-block;
+				}
+			}
+			.remove {
+				position: absolute;
+				top: 0;
+				right: -10px;
+				color: rgba(0,0,0,0.4);
+				
+				&:hover {
+					color: rgba(0,0,0,0.8);	
+				}
+			}
+		}
+	}
+}

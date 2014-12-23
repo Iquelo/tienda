@@ -1,0 +1,241 @@
+#footer {
+	background: transparent;
+	padding: 0;
+	width: 100%;
+	z-index: 999;
+	height: 90px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	
+	@include translateZ(0);
+	@extend .transition;
+	
+	&.row {
+		max-width: 100%;
+	}
+	
+	&.static {
+		position: static;
+	}
+	@media only screen and (max-width: $break-small) {
+		position: relative;
+		background: #fff;
+		height: auto;
+		clear: both;
+		z-index: 1;
+	}
+	
+	&:hover,
+	&.hover,
+	&.active {
+		background: #fff;
+		
+		.social-links .paymenttypes {
+			@include filter(grayscale(0));
+			@include opacity(1);
+		}
+		
+	}
+	&.active {
+		.footer-toggle a {
+			color: $color1;	
+		}
+	}
+	
+	.footer-menu {
+		font-weight: 300;
+		text-align: left;
+		p {
+			margin: 0;
+			color: rgba(102,102,102,0.6);
+			font-size: 12px;
+			text-transform: uppercase;
+			line-height: 40px;
+		}
+		.select-wrapper + p {
+			line-height: 20px;
+			clear: left;
+		}
+		.select-wrapper {
+			margin: 0 20px 0 0;
+			background: transparent;
+			border: 0;
+			min-width: 0;
+			select {
+				height: 20px;
+				font-size: 11px;
+				padding: 0 15px 0 0;
+				line-height: 20px;
+				background: transparent;
+				
+				.rtl & {
+					padding: 0 0 0 15px;	
+				}
+			}
+			img {
+				display: none;
+			}
+			&:after {
+				top:4px;
+				right: 0;
+				
+				.rtl & {
+					right: auto;
+					left: 0;
+				}
+			}
+			&.currency_switcher {
+				width: 50px;	
+			}
+		}
+	}
+	.social-links {
+		line-height: 40px;
+		text-align: right;
+		
+		a {
+			color: rgba(0,0,0,0.3);	
+			margin-left: 15px;
+		}
+		.paymenttypes {
+			display: inline-block;
+			margin: 0;
+			width: 50px;
+			height: 20px;
+			vertical-align: middle;
+			background: transparent url('../img/payment-types.png') top left;
+			background-size: 50px 210px;
+			@include filter(grayscale(100%));
+			@include translateZ(0);
+			&.visa {
+				background-position: 0 -4px;
+			}
+			&.mc {
+				background-position: 0 -34px;
+			}
+			&.paypal {
+				background-position: 0 -64px;
+			}
+			&.discover {
+				background-position: 0 -94px;
+			}
+			&.stripe {
+				background-position: 0 -124px;
+			}
+			&.amazon {
+				background-position: 0 -154px;
+			}
+			&.amex {
+				background-position: 0 -184px;
+			}
+		}
+	}
+	.footer-toggle {
+		text-align: center;
+		
+		a {
+			display: block;
+			font-size: 12px;
+			color: rgba(21,21,21,0.4);	
+			line-height: 20px;
+			
+			&:hover {
+				color: $color1;	
+			}
+		}
+	}
+}
+.footer_inner {
+	position: relative;
+	padding: 25px 35px;
+	width: 100%;
+	
+	@media only screen and (max-width: $break-small) {
+		padding: 15px 25px;
+	}
+	.footer_products {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 100%;
+		height: auto;
+		@include opacity(0);
+		visibility: hidden;
+		@extend .transition;
+	}
+}
+.footer_products {
+	background: #fff;
+	display: block;
+	
+	.active & {
+		visibility: visible;
+		@include opacity(1);
+	}
+	
+	.footer_tabs {
+		background: #fff;
+		height: 100px;
+		@extend .transition;
+
+		ul {
+			text-align: center;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			line-height: 100px;
+			li {
+				display: inline-block;	
+			}
+			a {
+				display: inline-block;
+				font-size: 22px;
+				padding: 0;
+				margin: 0 20px;
+				border-bottom: 2px solid transparent;
+				color: #bababa;
+				line-height: 1.5;
+				&.active {
+					color: $color1;
+					border-bottom: 2px solid $color1;
+				}
+				&:hover {
+					color: $color1;	
+				}
+			}	
+		}
+	}
+	.carousel-container {
+		width: 100%;
+		position: relative;
+		.products .product {
+			margin: 0;
+			max-width: 100%;
+			min-width: 0;
+			
+			&.style2 {
+				margin-bottom: 30px;
+			}
+		}
+		.ai-indicator {
+			display: none;
+			position: absolute;
+			top:50%;
+			left:50%;
+			margin: -8px 0 0 -18px;
+		}
+		.carousel {
+			@include translate3d(0,0, 0);
+			@extend .transition;	
+		}
+		&.loading {
+			.carousel {
+				@include opacity(0.3);
+			}
+			.ai-indicator {
+				display: block;
+			}
+		}
+	}
+}  /* footer_products */
